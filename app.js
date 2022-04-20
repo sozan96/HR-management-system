@@ -19,10 +19,9 @@ let employee6 = new Employee("1005", "Rana Saleh","Development","Mid-Senior", ".
 let employee7 = new Employee("1006", "Hadi Ahmad","Finance","Junior","./image.jpg");
 
 
-let getRndInteger = function (min, max){
-    return Math.floor(Math.random() * (max - min) ) + min;
- 
- }
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+  }
 
     Employee.prototype.sal = function(){
        let oldSalary=0;
@@ -37,7 +36,7 @@ let getRndInteger = function (min, max){
         oldSalary = getRndInteger(500, 1000);
            
         }
-       let netSalary = oldSalary - oldSalary * .0075
+       let netSalary = (oldSalary - oldSalary * .0075);
        this.salary=netSalary; 
       
     }
