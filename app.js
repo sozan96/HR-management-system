@@ -30,27 +30,27 @@ let employee7 = new Employee( "Hadi Ahmad","Finance","Junior","./assest/Hadi.jpg
 
 
 
-function getRndInteger(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) ) + min;
-  }
+// function getRndInteger(min, max) {
+//     return Math.floor(Math.random() * (max - min + 1) ) + min;
+//   }
 
-    Employee.prototype.sal = function(){
-       let oldSalary=0;
-       if (this.level == "Senior") {
-        oldSalary = getRndInteger(1500, 2000);}
+//     Employee.prototype.sal = function(){
+//        let oldSalary=0;
+//        if (this.level == "Senior") {
+//         oldSalary = getRndInteger(1500, 2000);}
      
-       else if(this.level == "Mid-Senior"){
-        oldSalary = getRndInteger(1000, 1500);
+//        else if(this.level == "Mid-Senior"){
+//         oldSalary = getRndInteger(1000, 1500);
          
-       }
-       else if(this.level == "Junior"){
-        oldSalary = getRndInteger(500, 1000);0
+//        }
+//        else if(this.level == "Junior"){
+//         oldSalary = getRndInteger(500, 1000);0
            
-        }
-       let netSalary = (oldSalary - oldSalary * .0075);
-       this.salary=netSalary; 
+//         }
+//        let netSalary = (oldSalary - oldSalary * .0075);
+//        this.salary=netSalary; 
       
-    }
+    // }
     
 
 
