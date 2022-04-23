@@ -1,22 +1,33 @@
 `use strict`;
+let sectionEl = document.getElementById("cardSection"); //to create element in render
+let formEd = document.getElementById("formId");// need this if form listener
+console.log(sectionEl);
+let allEmploee =[];
 
-function Employee(employeeId , fullName ,department , level , imageUrl  )
+
+
+function Employee(  fullName ,department , level , imageUrl , EmployeeId )
 {
-    this.EmployeeId = employeeId;
+    this.EmployeeId = Math.floor(1000 + Math.random() * 9000);
     this.fullName = fullName;
     this.department =department;
     this.level =level;
     this.imageUrl =imageUrl;
+    
+    allEmploee.push(this);
+
 } 
 
 
-let employee1 =new Employee("1000" ,"Ghazi Samer" ,"Administration", "Senior" , "./image.jpg");
-let employee2 = new Employee("1001" , "Lana Ali", "Finance" ,"Senior" ,"./image.jpg" );
-let employee3 =new Employee("1002" ,"Tamara Ayoub",	"Marketing","Senior" ,"./image.jpg");
-let employee4 = new Employee("1003","Safi Walid","Administration", "Mid-Senior","./image.jpg");
-let employee5 = new Employee("1004", "Omar Zaid","Development","Senior" , "./image.jpg");
-let employee6 = new Employee("1005", "Rana Saleh","Development","Mid-Senior", "./image.jpg");
-let employee7 = new Employee("1006", "Hadi Ahmad","Finance","Junior","./image.jpg");
+let employee1 =new Employee("Ghazi Samer" ,"Administration", "Senior" , "./assest/Ghazi.jpg");
+let employee2 = new Employee( "Lana Ali", "Finance" ,"Senior" ,"./assest/Lana.jpg" );
+let employee3 =new Employee( "Tamara Ayoub","Marketing","Senior" ,"./assest/Tamara.jpg");
+let employee4 = new Employee("Safi Walid","Administration", "Mid-Senior","./assest/Safi.jpg");
+let employee5 = new Employee( "Omar Zaid","Development","Senior" , "./assest/Omar.jpg");
+let employee6 = new Employee( "Rana Saleh","Development","Mid-Senior", "./assest/Rana.jpg");
+let employee7 = new Employee( "Hadi Ahmad","Finance","Junior","./assest/Hadi.jpg");
+
+
 
 
 function getRndInteger(min, max) {
@@ -33,33 +44,74 @@ function getRndInteger(min, max) {
          
        }
        else if(this.level == "Junior"){
-        oldSalary = getRndInteger(500, 1000);
+        oldSalary = getRndInteger(500, 1000);0
            
         }
        let netSalary = (oldSalary - oldSalary * .0075);
        this.salary=netSalary; 
       
     }
-        Employee.prototype.render = function (){
-            document.write(`<h2>The Emploeyee Name  ${this.fullName} and the Salary  ${this.salary} </h2>`);
-         }
-         
-   
     
 
-employee1.sal();
-employee2.sal();
-employee3.sal();
-employee4.sal();
-employee5.sal();
-employee6.sal();
-employee7.sal();
+
+        Employee.prototype.render = function (){
+          //  document.write(`<h2>The Emploeyee Name  ${this.fullName} and the Salary  ${this.salary} </h2>`);
+          let Name = document.createElement('h2')
+          Name.textContent = this.fullName;
+          sectionEl.appendChild(Name);
+
+          let imageEl = document.createElement('img');
+          imageEl.src = this.imageUrl;
+          sectionEl.appendChild(imageEl);
+          imageEl.style.width="170px";
+
+          let depert = document.createElement('p');
+          depert.textContent = this.department;
+          sectionEl.appendChild(depert);
+
+          let levelL1 = document.createElement('p');
+          levelL1.textContent = this.level;
+          sectionEl.appendChild(levelL1);
+          
+          let id = document.createElement("p");
+          id.textContent= this.EmployeeId;
+          sectionEl.appendChild(id);
+          
+         }
+         
+         
+         formEd.addEventListener("submit", handelSubmit);
+         function handelSubmit(event){
+            event.preventDefault();
+            console.log("Form event", event);
+
+            let fullName = event.target.fullName.value;
+            let department = event.target.department.value;
+            let level = event.target.level.value;
+            let image= event.target.image.value;
+            let EmployeeId = Employee.EmployeeId;
+            let newemploee = new Employee (fullName   ,department , level , image ,EmployeeId);
+            newemploee.render();
+            
+// console.log("emploee", fullName ,department ,level,image );
+       }
+    
+       for (i=0; i<allEmploee.length ;i++)
+       {
+           allEmploee[i].render();
+       }
+
+     
+
+// var val = Math.floor(1000 + Math.random() * 9000);
+// Employee.EmployeeId =val;
 
 
-employee1.render();
-employee2.render();
-employee3.render();
-employee4.render();
-employee5.render();
-employee6.render();
-employee7.render();
+
+// employee1.sal();
+// employee2.sal();
+// employee3.sal();
+// employee4.sal();
+// employee5.sal();
+// employee6.sal();
+// employee7.sal();
