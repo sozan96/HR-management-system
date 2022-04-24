@@ -1,0 +1,12 @@
+
+
+#tableId, th, td {
+    border: 1px solid black;
+    border-collapse: collapse
+  }
+
+  #table2, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding-bottom: 10px;
+  }
