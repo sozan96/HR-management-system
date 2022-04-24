@@ -1,0 +1,74 @@
+body{
+    background-image: url(./assest/Color\ Hunt\ Palette\ ffeeeefff6eaf7e9d7ebd8c3.png) ;
+}
+#h1{
+    text-align: center;
+    font-size: 60px;
+    text-decoration: underline;
+}
+
+
+h2{
+    color: palevioletred
+}
+
+
+header{
+    background-color: palevioletred;
+    
+    
+}
+
+    .li{ 
+        display: inline;
+        font-size: 30px;
+        text-align: center;
+        padding-left: 0 20px;
+      }
+
+    
+
+#department{
+    display: block;
+    font-size: medium;
+}
+
+#level{
+    display: block;
+    font-size: medium;
+    
+}
+
+.dep{
+    font-size :20px;
+    border-style: solid ;
+    border-color: palevioletred;
+}
+
+.name{
+    font-size :20px;
+    border-style: solid ;
+    border-color: palevioletred;
+}
+
+.lev{
+    font-size :20px;
+    border-style: solid ;
+    border-color: palevioletred;
+}
+.img{
+    font-size :20px;
+    border-style: solid ;
+    border-color: palevioletred;
+}
+
+main{
+display: flex;
+}
+
+.sub{
+    font-size: 20px;
+    border-style: solid;
+    border-color: black;
+    background-color: palevioletred;
+}

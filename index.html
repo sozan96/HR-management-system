@@ -5,17 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=constructor, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
+   <section id="cardSection">
+   
    <header>
-<h1>HOME </h1>
-<br><br> <ul>
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./accounting.html">Accounting</a></li>
+<h1 id ="h1">HR-MANAGEMENT </h1>
+<br><br> <ul >
+        <li class="li"><a href="./index.html">Home</a></li>
+        <li class="li"><a href="./accounting.html">Accounting</a></li>
       
       </ul>
    </header> 
-   <main><script src="./app.js"></script></main>
+   <main>
+      
+      <br><br>
+      <form id="formId">
+         <label class="name" for="fullName">fullName:</label><br>
+         <input type="text" id="fullName" name="fullName"><br>
+         <br>
+         
+
+         <form action="/action_page.php">
+      <label class="dep" for="department">department:</label>
+<select name="department" id="department">
+  <option value="Administration">Administration</option>
+  <option value="Marketing">Marketing</option>
+  <option value="Development">Development</option>
+  <option value="Finance">Finance</option>
+</select><br>
+
+<form action="/action_page.php">
+   <label class="lev" for="level ">level:</label>
+   <select name="level" id="level">
+     <option value="Junior">Junior</option>
+     <option value="Mid-Senior">Mid-Senior</option>
+     <option value="Senior">Senior</option>
+    
+   </select><br>
+   
+   <label class="img" for="image">Image link:</label><br>
+   <input type="text" id="image" name="image"><br>
+
+   <input class="sub" type="submit" value="Submit">
+
+</form>
+
+</section>
+ <main>
    <footer>
        <br><br>
 <a href="https://twitter.com/i/flow/login">twitter</a>
@@ -26,6 +64,6 @@
 
 
    </footer>
-   
+   <script src="./app.js"></script>
 </body>
 </html>
