@@ -6,13 +6,14 @@ let allEmploee =[];
 
 
 
-function Employee(  fullName ,department , level , imageUrl , EmployeeId )
+function Employee(  fullName ,department , level , imageUrl , EmployeeId , salary )
 {
     this.EmployeeId = Math.floor(1000 + Math.random() * 9000);
     this.fullName = fullName;
     this.department =department;
     this.level =level;
     this.imageUrl =imageUrl;
+
     
     allEmploee.push(this);
 
@@ -30,27 +31,27 @@ let employee7 = new Employee( "Hadi Ahmad","Finance","Junior","./assest/Hadi.jpg
 
 
 
-// function getRndInteger(min, max) {
-//     return Math.floor(Math.random() * (max - min + 1) ) + min;
-//   }
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+  }
 
-//     Employee.prototype.sal = function(){
-//        let oldSalary=0;
-//        if (this.level == "Senior") {
-//         oldSalary = getRndInteger(1500, 2000);}
+    Employee.prototype.sal = function(){
+       let oldSalary=0;
+       if (this.level == "Senior") {
+        oldSalary = getRndInteger(1500, 2000);}
      
-//        else if(this.level == "Mid-Senior"){
-//         oldSalary = getRndInteger(1000, 1500);
+       else if(this.level == "Mid-Senior"){
+        oldSalary = getRndInteger(1000, 1500);
          
-//        }
-//        else if(this.level == "Junior"){
-//         oldSalary = getRndInteger(500, 1000);0
+       }
+       else if(this.level == "Junior"){
+        oldSalary = getRndInteger(500, 1000);0
            
-//         }
-//        let netSalary = (oldSalary - oldSalary * .0075);
-//        this.salary=netSalary; 
+        }
+       let netSalary = (oldSalary - oldSalary * .0075);
+       this.salary=netSalary; 
       
-    // }
+    }
     
 
 
@@ -92,26 +93,37 @@ let employee7 = new Employee( "Hadi Ahmad","Finance","Junior","./assest/Hadi.jpg
             let EmployeeId = Employee.EmployeeId;
             let newemploee = new Employee (fullName   ,department , level , image ,EmployeeId);
             newemploee.render();
+            saveData(allEmploee);
             
-// console.log("emploee", fullName ,department ,level,image );
        }
     
-       for (i=0; i<allEmploee.length ;i++)
-       {
-           allEmploee[i].render();
-       }
+      
 
-     
-
-// var val = Math.floor(1000 + Math.random() * 9000);
+       // var val = Math.floor(1000 + Math.random() * 9000);
 // Employee.EmployeeId =val;
 
 
+//local storage
+       function saveData(data) {
 
-// employee1.sal();
-// employee2.sal();
-// employee3.sal();
-// employee4.sal();
-// employee5.sal();
-// employee6.sal();
-// employee7.sal();
+        let stringfiyData = JSON.stringify(data);
+        localStorage.setItem("emploee", stringfiyData);
+    }
+    function getData() {
+        let retrievedData = localStorage.getItem("emploee");
+        let arrayData = JSON.parse(retrievedData);
+        if (arrayData != null) {
+            for (let i = 0; i < arrayData.length; i++) {
+                new Employee (arrayData[i].fullName, arrayData[i].department, arrayData[i].imageUrl, arrayData[i].EmployeeId, arrayData[i].salary);
+            }
+        } renderAll();
+    }
+getData();
+function renderAll() {
+    for (let i = 0; i < allEmploee.length; i++) {
+        allEmploee[i].render();
+       
+    }
+}
+
+
