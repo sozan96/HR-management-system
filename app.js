@@ -6,14 +6,14 @@ let allEmploee =[];
 
 
 
-function Employee(  fullName ,department , level , imageUrl , EmployeeId , salary )
+function Employee(  fullName ,department , level , imageUrl , EmployeeId  )
 {
     this.EmployeeId = Math.floor(1000 + Math.random() * 9000);
     this.fullName = fullName;
     this.department =department;
     this.level =level;
     this.imageUrl =imageUrl;
-
+    
     
     allEmploee.push(this);
 
@@ -28,6 +28,13 @@ let employee5 = new Employee( "Omar Zaid","Development","Senior" , "./assest/Oma
 let employee6 = new Employee( "Rana Saleh","Development","Mid-Senior", "./assest/Rana.jpg");
 let employee7 = new Employee( "Hadi Ahmad","Finance","Junior","./assest/Hadi.jpg");
 
+
+function renderAll() {
+    for (let i = 0; i < allEmploee.length; i++) {
+        allEmploee[i].sal();
+         allEmploee[i].render();
+        
+    }}
 
 
 
@@ -77,6 +84,12 @@ function getRndInteger(min, max) {
           let id = document.createElement("p");
           id.textContent= this.EmployeeId;
           sectionEl.appendChild(id);
+
+          let salary = document.createElement("p");
+          salary.textContent= this.salary;
+          sectionEl.appendChild(salary);
+
+
           
          }
          
@@ -90,12 +103,15 @@ function getRndInteger(min, max) {
             let department = event.target.department.value;
             let level = event.target.level.value;
             let image= event.target.image.value;
+            let salary= event.target.salary.value;
             let EmployeeId = Employee.EmployeeId;
-            let newemploee = new Employee (fullName   ,department , level , image ,EmployeeId);
+           
+            let newemploee = new Employee (fullName   ,department , level , image ,EmployeeId , salary);
             newemploee.render();
             saveData(allEmploee);
             
        }
+       
     
       
 
@@ -116,14 +132,11 @@ function getRndInteger(min, max) {
             for (let i = 0; i < arrayData.length; i++) {
                 new Employee (arrayData[i].fullName, arrayData[i].department, arrayData[i].imageUrl, arrayData[i].EmployeeId, arrayData[i].salary);
             }
-        } renderAll();
+        } 
+        renderAll();
     }
 getData();
-function renderAll() {
-    for (let i = 0; i < allEmploee.length; i++) {
-        allEmploee[i].render();
-       
-    }
-}
+
+
 
 
